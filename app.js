@@ -5,6 +5,8 @@ const cors = require('cors')
 const connect = require('./src/Connection/connect');
 const postRoute = require("./src/Routes/post")
 
+const port = process.env.PORT || 5050;
+
 const app = express();
 
 app.use(fileUpload({
@@ -16,4 +18,4 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json()); 
 app.use("",postRoute);
 
-app.listen(5050 ,()=>{ console.log(`Server is on 5050`)})
+app.listen(port ,()=>{ console.log(`Server is on 5050`)})
