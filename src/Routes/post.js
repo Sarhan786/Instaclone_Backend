@@ -62,4 +62,19 @@ router.get("/show",async(req,res)=>{
     }
 })
 
+router.get("/",async(req,res)=>{
+    try{
+        const posts = await Post.find().sort({_id:-1});
+        res.status(200).json({
+            posts
+        })
+    }catch(e){
+        res.status(500).json({
+            status: "Failed",
+            message : e.message
+    
+        })
+    }
+})
+
 module.exports = router;
